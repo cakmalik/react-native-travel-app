@@ -3,7 +3,9 @@ import { StyleSheet, Text, View } from "react-native";
 import { useFonts } from "expo-font";
 import * as Splashscreen from "expo-splash-screen";
 import { useCallback } from "react";
-import { NavigationContainer } from '@react-navigation/native';
+import { NavigationContainer } from "@react-navigation/native";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import { Onboarding } from "./screens";
 
 export default function App() {
   const [fontsLoaded] = useFonts({
@@ -23,11 +25,18 @@ export default function App() {
     return null;
   }
 
+  const Stack = createNativeStackNavigator();
+  
   return (
-    <View style={styles.container}>
-      <Text style={styles.textStyle}>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <NavigationContainer>
+      <Stack.Navigator>
+        <Stack.Screen
+          name="Onboard"
+          component={Onboarding}
+          options={{ headerShown: false }}
+        />
+      </Stack.Navigator>
+    </NavigationContainer>
   );
 }
 
