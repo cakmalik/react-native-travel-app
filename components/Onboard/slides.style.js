@@ -9,7 +9,7 @@ const styles = StyleSheet.create({
   stack: {
     position: "absolute",
     bottom: 0,
-    marginBottom: 60,
+    marginBottom: 20,
     marginHorizontal: 20,
   },
 });

@@ -6,7 +6,7 @@ import { useCallback } from "react";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { Onboarding } from "./screens";
-
+import BottomTabNavigation from "./navigation/BottomTabNavigation";
 export default function App() {
   const [fontsLoaded] = useFonts({
     regular: require("./assets/fonts/Roboto-Regular.ttf"),
@@ -26,13 +26,18 @@ export default function App() {
   }
 
   const Stack = createNativeStackNavigator();
-  
+
   return (
     <NavigationContainer>
       <Stack.Navigator>
         <Stack.Screen
           name="Onboard"
           component={Onboarding}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="Bottom"
+          component={BottomTabNavigation}
           options={{ headerShown: false }}
         />
       </Stack.Navigator>
