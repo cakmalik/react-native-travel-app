@@ -11,6 +11,7 @@ import reusable from "../Reusable/reusable.style";
 import ReusableText from "../Reusable/ReusableText";
 import { COLORS, SIZES, TEXT } from "../../constants/theme";
 import { Feather } from "@expo/vector-icons";
+import {ReusableTile} from "../../components";
 
 const Recomendations = () => {
   const navigation = useNavigation();
@@ -19,6 +20,7 @@ const Recomendations = () => {
       _id: "23fg4242f23",
       country_id: "324234234ffs",
       title: "Walt Disney World",
+      location: "USA",
       imageUrl:
         "https://deadline.com/wp-content/uploads/2022/12/walt-disney-logo.jpg",
       rating: 4.7,
@@ -28,6 +30,7 @@ const Recomendations = () => {
       _id: "23fg433242f23",
       country_id: "32234234234ffs",
       title: "Niagara",
+      location: "Canada",
       imageUrl:
         "https://img.okezone.com/content/2023/04/07/408/2794741/air-terjun-niagara-letaknya-di-amerika-serikat-atau-kanada-vJUvTtClif.jpg",
       rating: 4.0,
@@ -37,6 +40,7 @@ const Recomendations = () => {
       _id: "23fgd4242f23",
       country_id: "324234234ffs",
       title: "Walt Disney World",
+      location: "USA",
       imageUrl:
         "https://deadline.com/wp-content/uploads/2022/12/walt-disney-logo.jpg",
       rating: 4.7,
@@ -66,7 +70,8 @@ const Recomendations = () => {
         keyExtractor={(item) => item._id}
         contentContainerStyle={{ columnGap: SIZES.medium }}
         showsHorizontalScrollIndicator={false}
-        renderItem={({ item }) => <Text>{item.title}</Text>}
+        renderItem={({ item }) => 
+        <ReusableTile item={item} onPress={() => navigation.navigate("PlaceDetails",item._id)} />}
       />
     </View>
   );
