@@ -6,13 +6,10 @@ import { COLORS, SIZES, TEXT } from "../../constants/theme";
 import { AntDesign } from "@expo/vector-icons";
 import styles from "./home.style";
 import { useNavigation } from "@react-navigation/native";
-import {
-  ReusableText,
-  ReusableBtn,
-  HeightSpacer,
-} from "../../components";
+import { ReusableText, ReusableBtn, HeightSpacer } from "../../components";
 
 import Places from "../../components/Home/Places";
+import Recomendations from "../../components/Home/Recomendations";
 
 const Home = () => {
   const navigation = useNavigation();
@@ -42,9 +39,13 @@ const Home = () => {
           family={"bold"}
           size={SIZES.medium}
           color={COLORS.black}
-        />  
+        />
 
-        <Places/>
+        <Places />
+
+        <HeightSpacer height={10} />
+
+        <Recomendations />
       </View>
     </SafeAreaView>
   );
