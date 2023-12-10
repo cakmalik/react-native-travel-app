@@ -5,7 +5,7 @@ import * as Splashscreen from "expo-splash-screen";
 import { useCallback } from "react";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import { Onboarding } from "./screens";
+import { Onboarding, Search } from "./screens";
 import BottomTabNavigation from "./navigation/BottomTabNavigation";
 export default function App() {
   const [fontsLoaded] = useFonts({
@@ -40,6 +40,13 @@ export default function App() {
           component={BottomTabNavigation}
           options={{ headerShown: false }}
         />
+        
+        <Stack.Screen
+          name="Search"
+          component={Search}
+          options={{ headerShown: false }}
+        />
+
       </Stack.Navigator>
     </NavigationContainer>
   );
